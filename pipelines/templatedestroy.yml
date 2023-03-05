@@ -1,6 +1,6 @@
 jobs:
-  - deployment: terraformsetup
-    displayName: terraform setup
+  - deployment: terraformdestroy
+    displayName: terraform destroy
     environment: ${{parameters.env}}
     pool:
       name: testpool 
