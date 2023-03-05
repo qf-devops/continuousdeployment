@@ -18,12 +18,12 @@ jobs:
             displayName: 'init'
             inputs:
               command: 'init'
-              backendType: 'azurerm'
-              backendServiceArm: 'Azure Pass - Sponsorship (31a90186-a097-4b71-9527-2ce644c05cb4)'
-              backendAzureRmResourceGroupName: 'tfstateaccount'
-              backendAzureRmStorageAccountName: 'terraformstateall'
-              backendAzureRmContainerName: 'tfstate'
-              backendAzureRmKey: 'dev/terraform.tfstate'
+              # backendType: 'azurerm'
+              # backendServiceArm: 'Azure Pass - Sponsorship (31a90186-a097-4b71-9527-2ce644c05cb4)'
+              # backendAzureRmResourceGroupName: 'tfstateaccount'
+              # backendAzureRmStorageAccountName: 'terraformstateall'
+              # backendAzureRmContainerName: 'tfstate'
+              # backendAzureRmKey: 'dev/terraform.tfstate'
               allowTelemetryCollection: true
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
            
@@ -32,12 +32,12 @@ jobs:
               command: 'plan'
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
               allowTelemetryCollection: true
-              backendType: 'azurerm'
-              backendServiceArm: 'Azure Pass - Sponsorship (31a90186-a097-4b71-9527-2ce644c05cb4)'
-              backendAzureRmResourceGroupName: 'tfstateaccount'
-              backendAzureRmStorageAccountName: 'terraformstateall'
-              backendAzureRmContainerName: 'tfstate'
-              backendAzureRmKey: 'dev/terraform.tfstate'
+              # backendType: 'azurerm'
+              # backendServiceArm: 'Azure Pass - Sponsorship (31a90186-a097-4b71-9527-2ce644c05cb4)'
+              # backendAzureRmResourceGroupName: 'tfstateaccount'
+              # backendAzureRmStorageAccountName: 'terraformstateall'
+              # backendAzureRmContainerName: 'tfstate'
+              # backendAzureRmKey: 'dev/terraform.tfstate'
             displayName: 'plan'
           - task: TerraformCLI@0
             inputs:
