@@ -35,18 +35,6 @@ jobs:
               arguments: 'node'
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
-          # - task: Kubernetes@1
-          #   inputs:
-          #     connectionType: 'Azure Resource Manager'
-          #     azureSubscriptionEndpoint: '703b1dd6-7553-4997-a944-4b90f3be659e'
-          #     azureResourceGroup: 'learnk8sResourceGroup'
-          #     kubernetesCluster: 'learnk8scluster'
-          #     useClusterAdmin: true
-          #     command: 'apply'
-          #     useConfigurationFile: true
-          #     arguments: -f **/k8s-deployments/db-deployment.yaml
-          #     secretType: 'dockerRegistry'
-          #     containerRegistryType: 'Azure Container Registry'
 
           - bash: kubectl apply -f ../k8s-deployments/
             displayName: 'Upgrade Azure CLI'
