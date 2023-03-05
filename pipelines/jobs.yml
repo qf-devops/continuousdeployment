@@ -38,7 +38,7 @@ jobs:
 
           - task: AzureKeyVault@2
             inputs:
-              azureSubscription: 'Azure Pass - Sponsorship (31a90186-a097-4b71-9527-2ce644c05cb4)'
+              azureSubscription: '703b1dd6-7553-4997-a944-4b90f3be659e'
               KeyVaultName: 'myvoteappkeyvault'
               SecretsFilter: '*'
               RunAsPreJob: true
