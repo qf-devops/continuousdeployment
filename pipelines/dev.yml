@@ -1,0 +1,12 @@
+trigger:
+- master
+
+parameters:
+- name: appFullName
+  type: string
+  default: Lance
+
+steps:
+- script: echo ${{ parameters.appFullName }}
+- template: getConfig.yml
+- script: echo ${{ parameters.TestIfOk }}
