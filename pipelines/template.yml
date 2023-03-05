@@ -1,11 +1,13 @@
 jobs:
-  - job: terraform setup
-    displayName: terraformsetup
+  - deployment: terraformsetup
+    displayName: terraform setup
     pool:
       name: testpool 
       vmImage: ubuntu-latest
 
     steps:
+    - checkout: self
+    - task: TerraformInstaller@0
     - script: |
         echo "terraform setup"
       displayName: 'Install tf packages'
