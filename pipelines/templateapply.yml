@@ -40,7 +40,6 @@ jobs:
               backendAzureRmStorageAccountName: 'terraformstateall'
               backendAzureRmContainerName: 'tfstate'
               backendAzureRmKey: 'dev/terraform.tfstate'
-              allowTelemetryCollection: true
             displayName: 'plan'
           - task: TerraformCLI@0
             inputs:
@@ -54,5 +53,4 @@ jobs:
               backendAzureRmStorageAccountName: 'terraformstateall'
               backendAzureRmContainerName: 'tfstate'
               backendAzureRmKey: 'dev/terraform.tfstate'
-              allowTelemetryCollection: true
             displayName: 'apply'
