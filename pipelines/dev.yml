@@ -10,3 +10,4 @@ stages:
       parameters:
         appFullName: Lance
         TestIfOk: OK
+        env: devo
