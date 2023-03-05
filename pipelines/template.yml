@@ -19,17 +19,20 @@ jobs:
               command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
               allowTelemetryCollection: true
-              displayName: 'init'
+            displayName: 'init'
           - task: TerraformCLI@0
             inputs:
               command: 'plan'
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
               allowTelemetryCollection: true
+            displayName: 'plan'
           - task: TerraformCLI@0
             inputs:
               command: 'apply'
               allowTelemetryCollection: true
+            displayName: 'apply'
           - task: TerraformCLI@0
             inputs:
               command: 'destroy'
               allowTelemetryCollection: true
+            displayName: 'destroy'
