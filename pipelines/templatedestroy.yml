@@ -28,12 +28,6 @@ jobs:
             displayName: 'plan'
           - task: TerraformCLI@0
             inputs:
-              command: 'apply'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-              allowTelemetryCollection: true
-            displayName: 'apply'
-          - task: TerraformCLI@0
-            inputs:
               command: 'destroy'
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
               allowTelemetryCollection: true

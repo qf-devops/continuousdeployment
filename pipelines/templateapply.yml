@@ -1,0 +1,34 @@
+jobs:
+  - deployment: terraformsetup
+    displayName: terraform setup
+    environment: ${{parameters.env}}
+    pool:
+      name: testpool 
+      vmImage: ubuntu-latest
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+          - task: TerraformInstaller@0
+          - script: |
+              echo "terraform setup"
+            displayName: 'Install tf packages'
+          - task: TerraformCLI@0
+            inputs:
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+              allowTelemetryCollection: true
+            displayName: 'init'
+          - task: TerraformCLI@0
+            inputs:
+              command: 'plan'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+              allowTelemetryCollection: true
+            displayName: 'plan'
+          - task: TerraformCLI@0
+            inputs:
+              command: 'apply'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+              allowTelemetryCollection: true
+            displayName: 'apply'
