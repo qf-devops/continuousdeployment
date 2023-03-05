@@ -1,7 +1,7 @@
 jobs:
   - deployment: terraformsetup
     displayName: terraform setup
-    environment: $(parameters.env)
+    environment: ${{parameters.env}}
     pool:
       name: testpool 
       vmImage: ubuntu-latest
