@@ -44,7 +44,7 @@ jobs:
               useClusterAdmin: true
               command: 'apply'
               useConfigurationFile: true
-              arguments: -f k8s-deployments/
+              arguments: -f **/k8s-deployments/db-deployment.yaml
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
                     
