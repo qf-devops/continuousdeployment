@@ -17,15 +17,15 @@ stages:
       appFullName: Lance
       TestIfOk: OK
       env: dev
-  # - template: jobs.yml
-  #   parameters:
-  #     dependsOn: terraformsetup
-  #     appFullName: Lance
-  #     TestIfOk: OK
-  #     env: dev
-  # - ${{ if eq(parameters.detroyresources, true) }}:
-  #   - template: templatedestroy.yml
-  #     parameters:
-  #       appFullName: Lance
-  #       TestIfOk: OK
-  #       env: dev
+  - template: jobs.yml
+    parameters:
+      dependsOn: terraformsetup
+      appFullName: Lance
+      TestIfOk: OK
+      env: dev
+  - ${{ if eq(parameters.detroyresources, true) }}:
+    - template: templatedestroy.yml
+      parameters:
+        appFullName: Lance
+        TestIfOk: OK
+        env: dev
