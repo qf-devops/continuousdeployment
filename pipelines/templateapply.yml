@@ -15,19 +15,6 @@ jobs:
               echo "terraform setup"
             displayName: 'Install tf packages'
 
-          # - task: TerraformCLI@0
-          #   displayName: 'init'
-          #   inputs:
-          #     command: 'init'
-          #     allowTelemetryCollection: true
-          #     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-          #     # backendType: 'azurerm'
-          #     # backendServiceArm: 'Azure Pass - Sponsorship (31a90186-a097-4b71-9527-2ce644c05cb4)'
-          #     # backendAzureRmResourceGroupName: 'tfstateaccount'
-          #     # backendAzureRmStorageAccountName: 'terraformstateall'
-          #     # backendAzureRmContainerName: 'tfstate'
-          #     # backendAzureRmKey: 'dev/terraform.tfstate'
-
           - task: TerraformCLI@0
             displayName: 'init'
             inputs:

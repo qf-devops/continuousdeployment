@@ -1,0 +1,21 @@
+jobs:
+  - deployment: appdeployment
+    displayName: application deployment
+    environment: ${{parameters.env}}
+    pool:
+      name: testpool 
+      vmImage: ubuntu-latest
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+          - task: TerraformInstaller@0
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: 'Azure Pass - Sponsorship(1)(31a90186-a097-4b71-9527-2ce644c05cb4)'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: 'az aks get-credentials --resource-group learnk8sResourceGroup --name learnk8scluster'
+
+                    

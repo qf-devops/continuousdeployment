@@ -24,3 +24,8 @@ stages:
           appFullName: Lance
           TestIfOk: OK
           env: dev
+  - template: jobs.yml
+      parameters:
+        appFullName: Lance
+        TestIfOk: OK
+        env: dev
