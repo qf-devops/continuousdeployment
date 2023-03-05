@@ -8,5 +8,5 @@ parameters:
 
 steps:
 - script: echo ${{ parameters.appFullName }}
-- template: getConfig.yml
+- template: template.yml
 - script: echo ${{ parameters.TestIfOk }}
