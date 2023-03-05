@@ -19,11 +19,11 @@ resource "azurerm_kubernetes_cluster" "cluster" {
   }
 }
 
-resource "local_file" "kubeconfig" {
-  depends_on   = [azurerm_kubernetes_cluster.cluster]
-  filename     = "kubeconfig"
-  content      = azurerm_kubernetes_cluster.cluster.kube_config_raw
-}
+# resource "local_file" "kubeconfig" {
+#   depends_on   = [azurerm_kubernetes_cluster.cluster]
+#   filename     = "kubeconfig"
+#   content      = azurerm_kubernetes_cluster.cluster.kube_config_raw
+# }
 
 resource "azurerm_kubernetes_cluster_node_pool" "mem" {
  kubernetes_cluster_id = azurerm_kubernetes_cluster.cluster.id
