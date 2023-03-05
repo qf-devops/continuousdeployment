@@ -13,12 +13,26 @@ jobs:
           # Update to latest Azure CLI version
           - bash: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
             displayName: 'Upgrade Azure CLI'
+          
+          - task: KubectlInstaller@0
+            inputs:
+              kubectlVersion: 'latest'
 
           - task: AzureCLI@2
             inputs:
               azureSubscription: 'Azure Pass - Sponsorship(1)(31a90186-a097-4b71-9527-2ce644c05cb4)'
               scriptType: 'bash'
-              scriptLocation: 'inlineScript'
+              scriptLocation: 'inlineScript'   
               inlineScript: 'az aks get-credentials --resource-group learnk8sResourceGroup --name learnk8scluster'
-
+          - task: Kubernetes@1
+            inputs:
+              connectionType: 'Azure Resource Manager'
+              azureSubscriptionEndpoint: '703b1dd6-7553-4997-a944-4b90f3be659e'
+              azureResourceGroup: 'learnk8sResourceGroup'
+              kubernetesCluster: 'learnk8scluster'
+              useClusterAdmin: true
+              command: 'get'
+              arguments: 'node'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
                     
