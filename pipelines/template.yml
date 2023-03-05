@@ -14,3 +14,8 @@ jobs:
           - script: |
               echo "terraform setup"
             displayName: 'Install tf packages'
+          - task: TerraformCLI@0
+            inputs:
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+              allowTelemetryCollection: true
