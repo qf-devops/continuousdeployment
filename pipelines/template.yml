@@ -4,10 +4,12 @@ jobs:
     pool:
       name: testpool 
       vmImage: ubuntu-latest
-
-    steps:
-    - checkout: self
-    - task: TerraformInstaller@0
-    - script: |
-        echo "terraform setup"
-      displayName: 'Install tf packages'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+          - task: TerraformInstaller@0
+          - script: |
+              echo "terraform setup"
+            displayName: 'Install tf packages'
