@@ -1,3 +1,9 @@
+parameters:
+- name: detroyresources
+  displayName: do you want to destroy the resources?
+  type: boolean
+  default: false 
+
 trigger:
 - main
 stages:
@@ -6,8 +12,15 @@ stages:
   variables:
     - group: "Terraform-Group-Variables"
   jobs:
-    - template: template.yml
+  - ${{ if eq(parameters.detroyresources, false) }}:
+    - template: templateapply.yml
       parameters:
         appFullName: Lance
         TestIfOk: OK
         env: dev
+    - ${{ if eq(parameters.detroyresources, true) }}:
+      - template: templatedestroy.yml
+        parameters:
+          appFullName: Lance
+          TestIfOk: OK
+          env: dev
