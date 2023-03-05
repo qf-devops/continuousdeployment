@@ -1,15 +1,12 @@
 trigger:
 - main
-
-parameters:
-- name: appFullName
-  type: string
-  default: Lance
-- name: TestIfOk
-  type: string
-  default: OK
-
-steps:
-- script: echo ${{ parameters.appFullName }}
-- template: template.yml
-- script: echo ${{ parameters.TestIfOk }}
+stages:
+- stage: terraform
+  displayName: Devo
+  variables:
+    - group: "Terraform-Group-Variables"
+  jobs:
+    - template: template.yml
+      parameters:
+        appFullName: Lance
+        TestIfOk: OK
