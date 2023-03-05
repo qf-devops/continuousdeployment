@@ -10,7 +10,16 @@ jobs:
         deploy:
           steps:
           - checkout: self
-          - task: TerraformInstaller@0
+          # Specify python version
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: '3.x'
+              architecture: 'x64'
+              
+          # Update to latest Azure CLI version
+          - bash: pip install --pre azure-cli --extra-index-url https://azurecliprod.blob.core.windows.net/edge
+            displayName: 'Upgrade Azure CLI'
+
           - task: AzureCLI@2
             inputs:
               azureSubscription: 'Azure Pass - Sponsorship(1)(31a90186-a097-4b71-9527-2ce644c05cb4)'
