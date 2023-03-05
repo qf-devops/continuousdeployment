@@ -12,11 +12,11 @@ stages:
   variables:
     - group: "Terraform-Group-Variables"
   jobs:  
-  # - template: templateapply.yml
-  #   parameters:
-  #     appFullName: Lance
-  #     TestIfOk: OK
-  #     env: dev
+  - template: templateapply.yml
+    parameters:
+      appFullName: Lance
+      TestIfOk: OK
+      env: dev
   - template: jobs.yml
     parameters:
       dependsOn: terraformsetup
