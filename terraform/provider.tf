@@ -18,8 +18,3 @@ provider "azurerm" {
   client_id         = "0c0d79da-94d1-4561-b9b6-73aa7498c27b"
   client_secret     = "6uo8Q~hdkl5dQRcHx20lpe1s6imzY.NMj0xcHcR0"
 }
-
-resource "azurerm_resource_group" "rg" {
-  name     = "myTFResourceGroup"
-  location = "westus2"
-}
