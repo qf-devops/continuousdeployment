@@ -26,6 +26,7 @@ stages:
         env: dev
   - template: jobs.yml
     parameters:
+      dependsOn: terraformsetup
       appFullName: Lance
       TestIfOk: OK
       env: dev
