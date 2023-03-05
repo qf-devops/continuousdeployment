@@ -36,13 +36,6 @@ jobs:
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
 
-          - task: AzureKeyVault@2
-            inputs:
-              azureSubscription: '703b1dd6-7553-4997-a944-4b90f3be659e'
-              KeyVaultName: 'myvoteappkeyvault'
-              SecretsFilter: '*'
-              RunAsPreJob: true
-
           - bash: kubectl apply -f ../k8s-deployments/
             displayName: 'Upgrade Azure CLI'
             workingDirectory: '$(System.DefaultWorkingDirectory)/k8s-deployments'
